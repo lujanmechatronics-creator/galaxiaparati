@@ -3,7 +3,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1">
 <title>Para mi Yuli 💖</title>
 <meta name="description" content="Una galaxia especial para Yuli, mi profesorita hermosa.">
 
@@ -17,80 +17,47 @@ html,body{
 #galaxy-canvas{
   position:fixed;inset:0;
   width:100%;height:100%;
-  touch-action:none;display:block;
+  display:block;touch-action:none;
 }
 .pill{
   position:fixed;top:18px;left:50%;
   transform:translateX(-50%);
-  color:white;font-size:14px;
-  text-align:center;
-  padding:12px 22px;
-  border-radius:30px;
+  color:white;font-size:14px;text-align:center;
+  padding:12px 22px;border-radius:30px;
   border:1px solid #ffffff40;
   background:#220d3280;
   backdrop-filter:blur(12px);
-  z-index:5;
-  width:max-content;
-  max-width:90%;
+  z-index:5;width:max-content;max-width:90%;
   box-shadow:0 0 25px #ff80c030;
 }
 .firma{
-  position:fixed;bottom:75px;
+  position:fixed;bottom:24px;
   width:100%;text-align:center;
   font-size:13px;color:#ffc3e5;
   text-shadow:0 0 12px #ff5bb9;
-  pointer-events:none;
+  pointer-events:none;z-index:5;
 }
 #tapMessage{
-  position:fixed;
-  top:50%;left:50%;
+  position:fixed;top:50%;left:50%;
   transform:translate(-50%,-50%);
   color:white;text-align:center;
   background:#16051ce0;
-  padding:30px 25px;
-  border-radius:22px;
+  padding:30px 25px;border-radius:22px;
   border:1px solid #faafe57e;
-  z-index:20;
-  width:85%;max-width:360px;
+  z-index:20;width:85%;max-width:360px;
   box-shadow:0 0 45px #ff78bf50;
 }
 #tapMessage h2{
-  color:#ffc2e9;
-  margin:0 0 12px;
+  color:#ffc2e9;margin:0 0 12px;
   font-size:25px;
 }
-#tapMessage p{
-  line-height:1.6;
-  font-size:15px;
-}
+#tapMessage p{line-height:1.6;font-size:15px}
 #tapMessage button{
   background:linear-gradient(120deg,#ff65ab,#b278ff);
   border:0;border-radius:25px;
   color:white;font-weight:bold;
-  padding:13px 26px;
-  cursor:pointer;
-  margin-top:8px;
+  padding:13px 26px;cursor:pointer;
 }
-.player{
-  position:fixed;
-  left:10px;right:10px;bottom:10px;
-  display:flex;justify-content:center;
-  align-items:center;gap:12px;
-  background:#160b2980;
-  border:1px solid #ffffff25;
-  backdrop-filter:blur(9px);
-  border-radius:14px;padding:9px;
-  color:white;
-  z-index:10;
-}
-.player button{
-  border:1px solid #ffffff35;
-  color:white;background:#ffffff12;
-  padding:9px 13px;
-  border-radius:10px;
-  cursor:pointer;
-}
-.player input{display:none}
 .error{
   position:fixed;top:80px;left:10px;right:10px;
   color:#ffe4f0;background:#34091f;
@@ -99,8 +66,35 @@ html,body{
 }
 #fx{
   position:fixed;inset:0;
+  pointer-events:none;z-index:4;
+}
+
+/* GATITOS TIERNOS ANIMADOS */
+.kitten{
+  position:fixed;
+  width:clamp(68px,10vw,125px);
+  height:auto;z-index:6;
   pointer-events:none;
-  z-index:4;
+  filter:drop-shadow(0 5px 12px rgba(255,130,200,.30));
+  animation:flotarGato 5s ease-in-out infinite;
+}
+.kitten.one{left:2%;top:23%;transform:rotate(-9deg)}
+.kitten.two{right:3%;top:35%;animation-delay:-1.8s}
+.kitten.three{left:5%;bottom:13%;animation-delay:-3s}
+
+@keyframes flotarGato{
+  0%,100%{translate:0 0}
+  50%{translate:0 -13px}
+}
+@media(max-width:600px){
+  .kitten{width:65px;opacity:.9}
+  .kitten.one{top:22%;left:1%}
+  .kitten.two{top:50%;right:1%}
+  .kitten.three{bottom:11%;left:2%}
+  .firma{bottom:15px;font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){
+  .kitten{animation:none}
 }
 </style>
 
@@ -120,6 +114,93 @@ html,body{
   Para mi Yuli, mi profesorita hermosa ✨
 </div>
 
+<!-- DIBUJO DE LOS GATITOS -->
+<svg aria-hidden="true" width="0" height="0"
+     style="position:absolute;overflow:hidden">
+<defs>
+<symbol id="gatitoYuli" viewBox="0 0 120 125">
+
+<!-- Colita -->
+<path d="M90 96 C118 98 122 73 105 71"
+ fill="none" stroke="#f6dce8"
+ stroke-width="13" stroke-linecap="round"/>
+
+<!-- Cuerpo -->
+<ellipse cx="60" cy="93" rx="35" ry="26"
+ fill="#fff0f5" stroke="#dfb8ca" stroke-width="2"/>
+
+<path d="M32 83 C17 78 20 113 44 115
+ M88 83 C103 78 100 113 76 115"
+ fill="#fff0f5" stroke="#dfb8ca" stroke-width="2"/>
+
+<!-- Orejas -->
+<path d="M23 51 L26 13 Q28 7 36 14 L51 28
+ M69 28 L85 13 Q93 7 96 17 L99 51"
+ fill="#fff0f5" stroke="#dfb8ca" stroke-width="2.2"
+ stroke-linejoin="round"/>
+
+<path d="M29 38 L31 20 L43 31
+ M77 31 L90 20 L93 39"
+ fill="#ffb4cd"/>
+
+<!-- Cabeza -->
+<ellipse cx="61" cy="53" rx="41" ry="35"
+ fill="#fff0f5" stroke="#dfb8ca" stroke-width="2.2"/>
+
+<!-- Ojitos cerrados -->
+<path d="M38 53 Q45 60 52 53
+ M70 53 Q77 60 84 53"
+ fill="none" stroke="#624758"
+ stroke-width="3.5" stroke-linecap="round"/>
+
+<!-- Mejillas -->
+<ellipse cx="33" cy="65" rx="9" ry="5"
+ fill="#ffc2d7" opacity=".8"/>
+<ellipse cx="89" cy="65" rx="9" ry="5"
+ fill="#ffc2d7" opacity=".8"/>
+
+<!-- Nariz -->
+<path d="M57 65 Q61 68 65 65 L61 71Z"
+ fill="#e888aa"/>
+
+<!-- Sonrisa -->
+<path d="M61 71 Q56 77 51 71
+ M61 71 Q66 77 71 71"
+ fill="none" stroke="#92637a"
+ stroke-width="1.8" stroke-linecap="round"/>
+
+<!-- Bigotes -->
+<path d="M42 68 L20 65 M43 73 L21 76
+ M79 68 L101 65 M79 73 L101 76"
+ stroke="#cfabc0" stroke-width="1.5"
+ stroke-linecap="round"/>
+
+<!-- Corazón en su pecho -->
+<path d="M60 104 C45 96 52 87 60 93
+ C68 87 75 96 60 104"
+ fill="#ff75b1"/>
+
+<!-- Lacito rosa -->
+<path d="M77 25 Q63 14 65 31 Q68 39 79 33
+ Q90 42 94 30 Q96 16 77 25Z"
+ fill="#f080bc" stroke="#b75891"/>
+<circle cx="79" cy="29" r="4" fill="#ffe0ef"/>
+
+</symbol>
+</defs>
+</svg>
+
+<svg class="kitten one" viewBox="0 0 120 125">
+  <use href="#gatitoYuli"/>
+</svg>
+<svg class="kitten two" viewBox="0 0 120 125">
+  <use href="#gatitoYuli"/>
+</svg>
+<svg class="kitten three" viewBox="0 0 120 125">
+  <use href="#gatitoYuli"/>
+</svg>
+
+<!-- MENSAJE DE BIENVENIDA -->
 <div id="tapMessage">
   <h2>Para ti, Yuli 💖</h2>
   <p>
@@ -127,18 +208,14 @@ html,body{
     Confía en ti, sigue tus sueños y nunca te rindas.
     Tú puedes lograr todo, mi profesorita bonita.
   </p>
-  <button id="entrarBtn">Descubre tu galaxia ✨</button>
+  <button id="entrarBtn">
+    Descubre tu galaxia ✨
+  </button>
 </div>
 
-<div class="player">
-  <button id="playBtn">▶</button>
-  <span style="font-size:12px">Nuestra música 🎵</span>
-  <input type="file" id="pickFile" accept="audio/*">
-  <button id="pickBtn">Elegir canción</button>
-  <audio id="audio" preload="none">
-    <source src="como_no_amarla.mp3" type="audio/mpeg">
-  </audio>
-</div>
+<!-- MÚSICA SIN BARRA NI BOTONES -->
+<audio id="audio" preload="none"
+       src="como_no_amarla.mp3" loop></audio>
 
 <div id="err" class="error"></div>
 <canvas id="fx"></canvas>
@@ -146,9 +223,9 @@ html,body{
 <script>
 (function(){
 
-// ==========================================
-// FRASES PERSONALIZADAS PARA YULI
-// ==========================================
+// ======================================
+// FRASES PARA YULI
+// ======================================
 
 const phrases = [
   "Yuli 💖",
@@ -183,50 +260,24 @@ const phrases = [
   "Siempre especial para mí 💖"
 ];
 
-// ==========================================
-// REPRODUCTOR DE MÚSICA
-// ==========================================
+// ======================================
+// MÚSICA AUTOMÁTICA AL ENTRAR
+// ======================================
 
 const audio=document.getElementById("audio");
-const playBtn=document.getElementById("playBtn");
-const pickBtn=document.getElementById("pickBtn");
-const pickFile=document.getElementById("pickFile");
 const mensaje=document.getElementById("tapMessage");
 
 document.getElementById("entrarBtn").onclick=()=>{
   mensaje.style.display="none";
-  audio.play().then(()=>{
-    playBtn.textContent="⏸";
-  }).catch(()=>{});
+  audio.volume=0.8;
+  audio.play().catch(e=>{
+    console.warn("No se pudo reproducir la música:",e);
+  });
 };
 
-playBtn.onclick=()=>{
-  if(audio.paused){
-    audio.play().then(()=>{
-      playBtn.textContent="⏸";
-    }).catch(()=>{});
-  }else{
-    audio.pause();
-    playBtn.textContent="▶";
-  }
-};
-
-pickBtn.onclick=()=>pickFile.click();
-
-pickFile.onchange=()=>{
-  if(pickFile.files.length){
-    audio.src=URL.createObjectURL(pickFile.files[0]);
-    audio.play().then(()=>{
-      playBtn.textContent="⏸";
-    }).catch(()=>{});
-  }
-};
-
-audio.onended=()=>playBtn.textContent="▶";
-
-// ==========================================
-// ESCENA 3D
-// ==========================================
+// ======================================
+// CONFIGURACIÓN THREE.JS
+// ======================================
 
 try{
 
@@ -237,9 +288,7 @@ if(typeof THREE==="undefined"){
 const canvas=document.getElementById("galaxy-canvas");
 
 const renderer=new THREE.WebGLRenderer({
-  canvas:canvas,
-  antialias:true,
-  alpha:false
+  canvas,antialias:true,alpha:false
 });
 
 renderer.setPixelRatio(Math.min(2,devicePixelRatio||1));
@@ -262,19 +311,20 @@ controls.minDistance=10;
 controls.maxDistance=220;
 
 function setCam(){
-  let mobile=innerWidth<768||innerWidth<innerHeight;
+  const mobile=innerWidth<768||innerWidth<innerHeight;
   camera.fov=mobile?90:75;
-  camera.position.set(0,mobile?26:22,mobile?110:75);
+  camera.position.set(
+    0,mobile?26:22,mobile?110:75
+  );
   camera.aspect=innerWidth/innerHeight;
   camera.updateProjectionMatrix();
   controls.update();
 }
-
 setCam();
 
-// ==========================================
+// ======================================
 // FONDO ESTELAR
-// ==========================================
+// ======================================
 
 function makeStarTexture(size=1024,count=2600){
 
@@ -287,7 +337,6 @@ function makeStarTexture(size=1024,count=2600){
   const bg=g.createRadialGradient(
     r,r,r*0.2,r,r,r
   );
-
   bg.addColorStop(0,"#050010");
   bg.addColorStop(1,"#000000");
 
@@ -298,23 +347,22 @@ function makeStarTexture(size=1024,count=2600){
 
     const x=Math.random()*size;
     const y=Math.random()*size;
-    const brightness=Math.random()*0.7+0.3;
+    const brightness=Math.random()*.7+.3;
 
     const glow=g.createRadialGradient(
       x,y,0,x,y,Math.random()*2.2+1.6
     );
 
     glow.addColorStop(
-      0,"rgba(255,255,255,"+(0.65*brightness)+")"
+      0,"rgba(255,255,255,"+(.65*brightness)+")"
     );
-
     glow.addColorStop(
-      1,"rgba(200,150,255,"+(0.12*brightness)+")"
+      1,"rgba(200,150,255,"+(.12*brightness)+")"
     );
 
     g.fillStyle=glow;
     g.beginPath();
-    g.arc(x,y,Math.random()*1.2+0.6,0,Math.PI*2);
+    g.arc(x,y,Math.random()*1.2+.6,0,Math.PI*2);
     g.fill();
   }
 
@@ -322,7 +370,6 @@ function makeStarTexture(size=1024,count=2600){
 }
 
 const starTex=makeStarTexture();
-
 starTex.wrapS=THREE.RepeatWrapping;
 starTex.wrapT=THREE.RepeatWrapping;
 
@@ -333,12 +380,11 @@ const bgSphere=new THREE.Mesh(
     side:THREE.BackSide
   })
 );
-
 scene.add(bgSphere);
 
-// ==========================================
-// GALAXIA DE FRASES
-// ==========================================
+// ======================================
+// GALAXIA 3D DE FRASES
+// ======================================
 
 const galaxy=new THREE.Group();
 scene.add(galaxy);
@@ -348,8 +394,6 @@ const arms=5;
 const radius=82;
 const maxH=22;
 
-// Textura de cada frase
-
 function makeTextTexture(text,size=48){
 
   const c=document.createElement("canvas");
@@ -357,19 +401,15 @@ function makeTextTexture(text,size=48){
   c.height=128;
 
   const g=c.getContext("2d");
-
   g.clearRect(0,0,c.width,c.height);
 
   g.font="800 "+size+"px Arial";
   g.textAlign="center";
   g.textBaseline="middle";
-
-  g.shadowColor="rgba(210,140,255,0.95)";
+  g.shadowColor="rgba(210,140,255,.95)";
   g.shadowBlur=24;
+  g.fillStyle="rgba(255,240,255,.98)";
 
-  g.fillStyle="rgba(255,240,255,0.98)";
-
-  // Ajustar textos largos para evitar cortes
   let fontSize=size;
   while(g.measureText(text).width>990 && fontSize>20){
     fontSize-=2;
@@ -380,8 +420,6 @@ function makeTextTexture(text,size=48){
 
   return new THREE.CanvasTexture(c);
 }
-
-// Distribuir textos por la galaxia
 
 for(let i=0;i<phraseCount;i++){
 
@@ -397,35 +435,23 @@ for(let i=0;i<phraseCount;i++){
   );
 
   const perArm=phraseCount/arms;
-
   const ang=(i%perArm)*(Math.PI*2/perArm);
-
-  const armAng=Math.floor(i/perArm)*
-    (Math.PI*2/arms);
-
-  const dist=Math.pow(
-    i/phraseCount,0.72
-  )*radius;
-
-  const thickness=Math.pow(
-    1-dist/radius,2
-  );
+  const armAng=Math.floor(i/perArm)*(Math.PI*2/arms);
+  const dist=Math.pow(i/phraseCount,.72)*radius;
+  const thickness=Math.pow(1-dist/radius,2);
 
   const x=Math.cos(ang+armAng)*dist;
   const z=Math.sin(ang+armAng)*dist;
-
-  const y=(Math.random()-0.5)*
-    maxH*thickness*0.9;
+  const y=(Math.random()-.5)*maxH*thickness*.9;
 
   spr.position.set(x,y,z);
   spr.scale.set(20,2.6,1);
-
   galaxy.add(spr);
 }
 
-// ==========================================
-// PARTÍCULAS ESTELARES
-// ==========================================
+// ======================================
+// ESTRELLAS DE LA GALAXIA
+// ======================================
 
 const starCount=8000;
 const geom=new THREE.BufferGeometry();
@@ -436,11 +462,8 @@ for(let i=0;i<starCount;i++){
   const ang=Math.random()*Math.PI*2;
   const dist=Math.random()*radius*1.15;
 
-  const y=(Math.random()-0.5)*36*
-    Math.pow(
-      1-Math.min(dist,radius)/radius,
-      1.5
-    );
+  const y=(Math.random()-.5)*36*
+    Math.pow(1-Math.min(dist,radius)/radius,1.5);
 
   pos[i*3]=Math.cos(ang)*dist;
   pos[i*3+1]=y;
@@ -452,22 +475,20 @@ geom.setAttribute(
   new THREE.BufferAttribute(pos,3)
 );
 
-const stars=new THREE.Points(
+galaxy.add(new THREE.Points(
   geom,
   new THREE.PointsMaterial({
     color:0xffffff,
-    size:0.28,
+    size:.28,
     transparent:true,
-    opacity:0.65,
+    opacity:.65,
     blending:THREE.AdditiveBlending
   })
-);
+));
 
-galaxy.add(stars);
-
-// ==========================================
+// ======================================
 // NÚCLEO DE LA GALAXIA
-// ==========================================
+// ======================================
 
 const coreR=12;
 
@@ -476,13 +497,12 @@ coreCanvas.width=256;
 coreCanvas.height=256;
 
 const cg=coreCanvas.getContext("2d");
-
 const gradient=cg.createRadialGradient(
   128,128,10,128,128,128
 );
 
 gradient.addColorStop(0,"#140018");
-gradient.addColorStop(0.6,"#090012");
+gradient.addColorStop(.6,"#090012");
 gradient.addColorStop(1,"#000000");
 
 cg.fillStyle=gradient;
@@ -500,20 +520,18 @@ const core=new THREE.Mesh(
 core.renderOrder=1;
 scene.add(core);
 
-// ==========================================
-// ANILLO LUMINOSO
-// ==========================================
+// ======================================
+// ANILLO DE LUZ
+// ======================================
 
 const photonRing=new THREE.Mesh(
   new THREE.RingGeometry(
-    coreR*1.05,
-    coreR*1.18,
-    128
+    coreR*1.05,coreR*1.18,128
   ),
   new THREE.MeshBasicMaterial({
     color:0xEAAEFF,
     transparent:true,
-    opacity:0.95,
+    opacity:.95,
     side:THREE.DoubleSide
   })
 );
@@ -521,9 +539,9 @@ const photonRing=new THREE.Mesh(
 photonRing.rotation.x=-Math.PI/2;
 scene.add(photonRing);
 
-// ==========================================
-// HALO ROSADO Y VIOLETA
-// ==========================================
+// ======================================
+// HALO ROSADO Y MORADO
+// ======================================
 
 function makeHaloTexture(){
 
@@ -534,12 +552,12 @@ function makeHaloTexture(){
   const r=512;
 
   const grd=g.createRadialGradient(
-    r,r,r*0.45,r,r,r
+    r,r,r*.45,r,r,r
   );
 
-  grd.addColorStop(0,"rgba(255,200,240,0.45)");
-  grd.addColorStop(0.35,"rgba(220,180,255,0.35)");
-  grd.addColorStop(0.7,"rgba(160,200,255,0.28)");
+  grd.addColorStop(0,"rgba(255,200,240,.45)");
+  grd.addColorStop(.35,"rgba(220,180,255,.35)");
+  grd.addColorStop(.7,"rgba(160,200,255,.28)");
   grd.addColorStop(1,"rgba(0,0,0,0)");
 
   g.fillStyle=grd;
@@ -555,16 +573,16 @@ const haloPlane=new THREE.Mesh(
     transparent:true,
     depthWrite:false,
     blending:THREE.AdditiveBlending,
-    opacity:0.9
+    opacity:.9
   })
 );
 
 haloPlane.rotation.x=-Math.PI/2;
 scene.add(haloPlane);
 
-// ==========================================
-// ANIMACIÓN
-// ==========================================
+// ======================================
+// ROTACIÓN DE LA GALAXIA
+// ======================================
 
 let tw=0;
 
@@ -572,15 +590,15 @@ function animate(){
 
   requestAnimationFrame(animate);
 
-  const t=performance.now()*0.001;
+  const t=performance.now()*.001;
 
-  tw=(tw+0.0003)%1;
+  tw=(tw+.0003)%1;
   starTex.offset.set(tw,0);
 
-  galaxy.rotation.y=t*0.05;
-  core.rotation.y=t*0.12;
-  photonRing.rotation.z=t*0.18;
-  haloPlane.rotation.z=t*0.02;
+  galaxy.rotation.y=t*.05;
+  core.rotation.y=t*.12;
+  photonRing.rotation.z=t*.18;
+  haloPlane.rotation.z=t*.02;
 
   controls.update();
   renderer.render(scene,camera);
@@ -599,9 +617,9 @@ window.addEventListener("resize",()=>{
   err.style.display="block";
 }
 
-// ==========================================
-// EFECTO DE CORAZONES
-// ==========================================
+// ======================================
+// CORAZONES EN DOBLE TOQUE
+// ======================================
 
 const fx=document.getElementById("fx");
 const ctx=fx.getContext("2d");
@@ -626,13 +644,12 @@ function spawnHearts(x,y,n=20){
 
   for(let i=0;i<n;i++){
 
-    let a=Math.random()*Math.PI*2;
+    const a=Math.random()*Math.PI*2;
 
     hearts.push({
-      x:x,
-      y:y,
-      vx:Math.cos(a)*(0.6+Math.random()*0.8)*DPR,
-      vy:-(0.8+Math.random()*1.2)*DPR,
+      x,y,
+      vx:Math.cos(a)*(.6+Math.random()*.8)*DPR,
+      vy:-(.8+Math.random()*1.2)*DPR,
       life:1,
       size:(10+Math.random()*16)*DPR
     });
@@ -645,25 +662,23 @@ function drawHeart(x,y,size){
   ctx.translate(x,y);
 
   ctx.beginPath();
-  ctx.moveTo(0,-0.25*size);
+  ctx.moveTo(0,-.25*size);
 
   ctx.bezierCurveTo(
-    0.5*size,-0.9*size,
-    1.4*size,-0.1*size,
-    0,0.9*size
+    .5*size,-.9*size,
+    1.4*size,-.1*size,
+    0,.9*size
   );
 
   ctx.bezierCurveTo(
-    -1.4*size,-0.1*size,
-    -0.5*size,-0.9*size,
-    0,-0.25*size
+    -1.4*size,-.1*size,
+    -.5*size,-.9*size,
+    0,-.25*size
   );
 
-  const g=ctx.createRadialGradient(
-    0,0,0,0,0,size
-  );
+  const g=ctx.createRadialGradient(0,0,0,0,0,size);
 
-  g.addColorStop(0,"rgba(255,190,220,0.95)");
+  g.addColorStop(0,"rgba(255,190,220,.95)");
   g.addColorStop(1,"rgba(255,90,160,0)");
 
   ctx.fillStyle=g;
@@ -693,6 +708,10 @@ window.addEventListener("touchend",e=>{
   if(t)detectDoubleTap(t.clientX,t.clientY);
 },{passive:true});
 
+// ======================================
+// ANIMACIÓN DE CORAZONES
+// ======================================
+
 function animateHearts(){
 
   ctx.clearRect(0,0,fx.width,fx.height);
@@ -703,8 +722,8 @@ function animateHearts(){
 
     h.x+=h.vx;
     h.y+=h.vy;
-    h.vy-=0.02*DPR;
-    h.life-=0.015;
+    h.vy-=.02*DPR;
+    h.life-=.015;
 
     ctx.globalAlpha=Math.max(0,h.life);
     drawHeart(h.x,h.y,h.size);
@@ -722,5 +741,6 @@ animateHearts();
 
 })();
 </script>
+
 </body>
 </html>
